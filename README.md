@@ -1,4 +1,4 @@
-# Global-Turnkey-JAVA-SDK
+# Turnkey-JAVA-SDK
 This  library provides integration access to the Turnkey Global Api.
 
 ## Quick Start
