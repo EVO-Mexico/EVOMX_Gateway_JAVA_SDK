@@ -1,17 +1,17 @@
-# Turnkey-JAVA-SDK
-This  library provides integration access to the Turnkey Global Api.
+# Evo-Payments--JAVA-SDK
+This  library provides integration access to the EVO Payments Gateway.
 
 ## Quick Start
 
-Payments Java SDK is a small library/sample of Java code that you can use to quickly integrate with the Payments system and submit transactions, check their status and more.
+EVO Payments Java SDK is a small library/sample of Java code that you can use to quickly integrate with the EVO Payments system and submit transactions, check their status and more.
 
 ## Before you Begin
 
-Before using the Payments Java SDK you should be familiar with the contents of the [API Specification for Merchants](docs/API-Specification.pdf) document as it describes all fields and their meaning within a given payment transaction.
+Before using the EVO Payments Java SDK you should be familiar with the contents of the [API Specification for Merchants](docs/API-Specification.pdf) document as it describes all fields and their meaning within a given payment transaction.
 
 ## Setup your Project
 
-Payments Java SDK is delivered as Maven project. The possible profiles:
+EVO Payments Java SDK is delivered as Maven project. The possible profiles:
 * "batch" creates a fat JAR (for command line usage)
 * "webapp" creates a deployable WAR file (sample servlets)
 
@@ -31,15 +31,15 @@ __It is possible to use the SDK from the command line__ (this is also Server-to-
 
 ## Configure
 
-The global configuration can be set with the "global-turnkey-sdk-config" system property.
+The global configuration can be set with the "evopayments-turnkey-sdk-config" system property.
 The possible values are: "production" and "test" (default).
 
 ```bash
--Dglobal-turnkey-sdk-config=test
+-Devopayments-turnkey-sdk-config=test
 ``` 
 
 ```bash
--Dglobal-turnkey-sdk-config=production
+-Devopayments-turnkey-sdk-config=production
 ```
 
 The releavant .properties files are in the src\main\resources\
@@ -57,7 +57,7 @@ Every payment operation has its own Call Object. To successfully perform any req
 * __AuthCall__ requests authorisation for a payment.
 * __CaptureCall__ performs a capture operation on an authorized payment.
 * __VoidCall__ cancels a previously authenticated payment.
-* __PurchaseCall__ does an authorize and capture operations at once (and cannot be voided).
+* __PurchaseCall__ does an authorize and capture operations at once (and cannot be voided). It also supports Recurring Payments(COF) - set cardOnFileType to 'First' for initial transaction, set cardOnFileType to 'Repeat' and cardOnFileInitiator to 'Merchant' for subsequent transactions.
 * __RefundCall__ refunds a previous capture operation, partially or in full.
 * __StatusCheckCall__ returns the status of an already issued payment transaction, as such it doesn’t actually generate a new transaction.
 
@@ -149,5 +149,5 @@ https://logging.apache.org/log4j/2.x/log4j-iostreams/apidocs/org/apache/logging/
 To enable the additional verbose API call log (= raw HTTP requests/response logs) use this system property:
 
 ```bash
--Dglobal-turnkey-sdk-http-log=verbose
+-Devopayments-turnkey-sdk-http-log=verbose
 ``` 
